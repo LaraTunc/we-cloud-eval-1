@@ -1,7 +1,7 @@
 import boto3
 from botocore.config import Config
 
-session = boto3.Session(profile_name='lara-private')
+# session = boto3.Session(profile_name='lara-private') 
 
 my_config = Config(
     region_name = 'us-east-1',
