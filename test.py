@@ -165,7 +165,7 @@ response = client.authorize_security_group_ingress(
             ],
             'ToPort': 22,
         },
-         {
+        {
             'FromPort': 80,
             'IpProtocol': 'tcp',
             'IpRanges': [
@@ -175,6 +175,17 @@ response = client.authorize_security_group_ingress(
                 },
             ],
             'ToPort': 80,
+        },
+        {
+            'FromPort': -1,
+            'IpProtocol': 'icmp',
+            'IpRanges': [
+                {
+                    'CidrIp': '0.0.0.0/0',
+                    'Description': 'ICMP access',
+                },
+            ],
+            'ToPort': -1,
         },
     ],
 )
@@ -242,4 +253,3 @@ for instance in instances_info:
 # All three EC2 instances are
 # Are reachable to each other - e.g. via the ping command
 # Are accessible remotely by SSH
-
