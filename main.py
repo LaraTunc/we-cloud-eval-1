@@ -1,7 +1,12 @@
 import boto3
 from botocore.config import Config
+import os
+from dotenv import load_dotenv
 
-session = boto3.Session(profile_name='lara-private') 
+load_dotenv()
+profile_name = os.getenv("PROFILE_NAME") or None
+
+session = boto3.Session(profile_name=profile_name) 
 
 my_config = Config(
     region_name = 'us-east-1',
